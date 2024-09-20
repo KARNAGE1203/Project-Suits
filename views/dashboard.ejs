@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+
+    <% String.prototype.fullDate = function() { %>
+        <% var inputDate = this; %> 
+        <% if (inputDate == "" || inputDate == null || inputDate == undefined) { %>
+            <% return ''; %>
+        <% } else { %>
+            <% var date = new Date(inputDate); %>
+            <% return date.toDateString(); %>
+        <% } %>
+    <% } %>
+
+    <%String.prototype.fullDateTime = function() { %>
+        <% let inputDate = this; %>
+        <% if (inputDate === "" || inputDate === null || inputDate === undefined) { %>
+            <% return ''; %>
+            <%} else {%>
+                <% let date = new Date(inputDate); %>
+                <% let hh = date.getHours();%>
+                <% let min = date.getMinutes(); %>
+                <% let sec = date.getSeconds(); %>
+                <% return date.toDateString()+' '+hh+':'+(min < 10 ? '0'+min : min)+':'+(sec < 10 ? '0'+sec : sec); %>
+            <%  } %>
+    <%  }%>
+
+    <% String.prototype.toUcwords = function() { %>
+        <% let value = this; %>
+        <% if (value == "" || value == null || value == undefined) { %>
+            <% return ''; %>
+        <% } else { %>
+            <% return value.replace(/\w+/g, function(a){ %>
+                <% return a.charAt(0).toUpperCase() + a.slice(1).toLowerCase(); %>
+            <% }); %>
+        <% } %>
+    <% } %>
+
+    <% String.prototype.formatNumber = function() { %>
+        <% let value = Number(this); %>
+        <% return value.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'); %>
+    <% } %>
+
+    <% var queryString = 'pub='+pageNavigate.pub+'&med='+pageNavigate.med; %>
+
+    <!-- headlinks here -->
+    <%- include('links/headlinks.ejs') %>
+
+    <!-- body here -->
+    <body class="hold-transition sidebar-mini layout-fixed">
+        <div class="wrapper">
+            <!-- Preloader -->
+            <div class="preloader flex-column justify-content-center align-items-center">
+                <img class="animation__shake" src="assets/img/PEARSONSPECTERLOGO-removebg-preview.png" alt="AdminLTELogo"
+                    height="100" width="100" />
+            </div>
+
+            <!-- Navbar -->
+            <%- include('navs/topbar.ejs') %>
+            <!-- /.navbar -->
+
+            <!-- Sidebar -->
+            <%- include('navs/sidebar.ejs') %>
+            <!-- /.sidebar -->
+
+            <div class="content-wrapper">  
+                <!-- Breadcrumbs -->
+                <%- include('navs/breadcrumbs.ejs') %>
+
+                <section class="content">
+                    <div class="" id="ps_main_content_display" ></div>
+                </section>
+            </div>
+
+            <input type="hidden" class="hidden_userdata" value="<%= JSON.stringify(userData) %>">
+            <input type="hidden" class="hidden_privilege_data" value="<%= JSON.stringify(privilege); %>">
+            <input type="hidden" class="hidden_department_data" value="<%= JSON.stringify(department) %>">
+            <!-- Footer here  -->
+            <%- include('navs/footer.ejs') %>
+
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- Footlinks here  -->
+        <%- include('links/footlinks.ejs') %>
+    </body>
+
+</html>

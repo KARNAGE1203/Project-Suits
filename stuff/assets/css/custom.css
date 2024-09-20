@@ -1,0 +1,63 @@
+
+.ps_body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/Homebg.png'); 
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+}
+
+.ps_container {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.ps_logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 90px; /* Adjust size as needed */
+}
+
+.ps_h1 {
+    font-size: 2.5em;
+    margin: 10px 0;
+}
+
+.ps_p {
+    font-size: 1.2em;
+    margin: 20px 0;
+}
+
+.nav-sidebar .nav-link {
+    color: #fff!important;
+}
+
+.nav-sidebar .nav-link:hover {
+    color: #ffffff36!important;
+}
+
+.ps_sidebar_bg {
+    background-color: rgb(32, 32, 32);
+}
+
+.swal2-container div  button{
+    margin-right: 0.3em!important;
+}
+
+.swal2-container div{
+    margin: 0.6em!important;
+}
+
+
